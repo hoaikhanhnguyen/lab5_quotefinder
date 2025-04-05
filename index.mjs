@@ -100,5 +100,5 @@ app.get("/dbTest", async(req, res) => {
 });//dbTest
 
 app.listen(3001, ()=>{
-  console.log("Express server running")
+  console.log("Express server running on port: ", 3001)
 })
