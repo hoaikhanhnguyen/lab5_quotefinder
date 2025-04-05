@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+<body>
+<div class="container">
+    <h1 class="display-1"> Quote Finder </h1>
+    <form method="GET" action="/searchByKeyword">
+        <label for="searchKeyword" class="form-label">Keyword: </label>
+        <input id="searchKeyword" type="text" name="keyword">
+        <button class="btn btn-primary">Search by Keyword</button>
+    </form>
+    <br>
+    <form action="/searchByAuthor">
+        <select name="authorId">
+            <% for (author of authors) { %>
+            <option value="<%=author.authorId%>">
+                <%= author.firstName %> <%= author.lastName %>
+            </option>
+            <% } %>
+        </select>
+        <button class="btn btn-secondary">Search by Author</button>
+    </form>
+    <br>
+    <form action="/searchByCategory">
+        <select name="category">
+            <% for (category of categories) { %>
+            <option value="<%=category.category%>">
+                <%= category.category %>
+            </option>
+            <% } %>
+        </select>
+        <button class="btn btn-secondary">Search by Category</button>
+    </form>
+    <br>
+    <form method="GET" action="/searchByLikes">
+        <label for="inputMin" class="form-label">Min: </label>
+        <input id="inputMin" type="text" name="min">
+        <label for="inputMax" class="form-label">Max: </label>
+        <input id="inputMax" type="text" name="max">
+        <button class="btn btn-info">Search by Likes</button>
+    </form>
+
+
+    <%- include("partials/footer.ejs") %>
+</div>
+</body>
